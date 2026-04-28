@@ -1,0 +1,79 @@
+/* style.css */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --ios-blue: #007AFF;
+}
+
+body {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding-bottom: 80px;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    margin: 15px;
+    padding: 20px;
+}
+
+.tab-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid var(--glass-border);
+    z-index: 1000;
+}
+
+.tab-item {
+    color: #8E8E93;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.tab-item.active {
+    color: var(--ios-blue);
+}
+
+input, select {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+button {
+    background: var(--ios-blue);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    width: 100%;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:active {
+    transform: scale(0.98);
+    opacity: 0.8;
+}
