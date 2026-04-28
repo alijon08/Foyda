@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Foyda Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+</head>
+<body>
+
+    <header class="p-4 pt-8 ml-4">
+        <h1 class="text-2xl font-bold" id="page-title">Ombor</h1>
+    </header>
+
+    <div id="ombor" class="section">
+        <div class="glass-card">
+            <h3>Yangi tovar</h3>
+            <input type="text" id="p_name" placeholder="Mahsulot nomi">
+            <input type="text" id="p_barcode" placeholder="Shtrix kod">
+            <input type="number" id="p_cost" placeholder="Keltirilgan narxi (Tannarx)">
+            <input type="number" id="p_price" placeholder="Sotish narxi">
+            <button onclick="app.addProduct()">Bazaga qo'shish</button>
+        </div>
+    </div>
+
+    <div id="sotuv" class="section" style="display:none;">
+        <div class="glass-card">
+            <h3>Sotuv paneli</h3>
+            <input type="text" id="scan_code" oninput="app.processSale(this.value)" placeholder="Skanerlang...">
+            <div id="sale_list" style="margin-top: 15px;"></div>
+        </div>
+    </div>
+
+    <div id="chiqim" class="section" style="display:none;">
+        <div class="glass-card">
+            <h3>Xarajatlar</h3>
+            <select id="exp_type">
+                <option value="Soliq">Soliq</option>
+                <option value="Kommunal">Kommunal</option>
+                <option value="Ijara">Ijara</option>
+            </select>
+            <input type="number" id="exp_amount" placeholder="Summa">
+            <button onclick="app.addExpense()" style="background: #FF3B30;">Chiqimni saqlash</button>
+        </div>
+    </div>
+
+    <div id="hisobot" class="section" style="display:none;">
+        <div class="glass-card">
+            <h3>Moliyaviy holat</h3>
+            <p>Jami Sotuv: <b id="stat_sales">0</b></p>
+            <p>Jami Tannarx: <b id="stat_cost">0</b></p>
+            <p>Jami Xarajatlar: <b id="stat_exp">0</b></p>
+            <hr>
+            <h2 style="color: #34C759;">Sof Foyda: <span id="stat_profit">0</span></h2>
+        </div>
+    </div>
+
+    <div class="tab-bar">
+        <a href="#" class="tab-item active" onclick="app.nav('ombor', this)">🏠<br>Ombor</a>
+        <a href="#" class="tab-item" onclick="app.nav('sotuv', this)">🛒<br>Sotuv</a>
+        <a href="#" class="tab-item" onclick="app.nav('chiqim', this)">💸<br>Chiqim</a>
+        <a href="#" class="tab-item" onclick="app.nav('hisobot', this)">📊<br>Hisobot</a>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
